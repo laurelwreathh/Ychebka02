@@ -18,7 +18,6 @@ def task1(start, target, must_be, flag=False):
 
 print("Task 1")
 print(task1(3, 12, 10))
-print(task1(7, 18, 16))
 
 
 def task2(start, target, not_contains, flag=False):
@@ -41,7 +40,6 @@ def task2(start, target, not_contains, flag=False):
 print()
 print("Task 2")
 print(task2(1, 27, 26))
-print(task2(1, 14, 6))
 
 
 def task3(start, target, contains ,not_contains, flag_contains=False, flag_not_contains=False):

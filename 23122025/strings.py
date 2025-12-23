@@ -21,6 +21,7 @@ print()
 #2
 with open("36037.txt", "r") as f:
     chars = f.read()
+    chars = "XZZYXXXYYYXZZYYYY"
 
 temp = 0
 max_len = 0
@@ -42,36 +43,28 @@ print()
 
 #3
 
-with open("46982.txt", "r") as f:
-    chars = f.read()
 
-temp = 0
-count_groups = 0
-inside_group = False
+with open("46982.txt") as file:
+    chars = file.read()
 
-for c in chars:
-    if c == "F":
-        if inside_group and temp >= 12:
-            count_groups += 1
-        temp = 0
-        inside_group = False
-        continue
 
-    if c == "E":
-        if not inside_group:
-            temp = 1
-            inside_group = True
+count = 0
+idx = 0
+
+while idx < len(chars):
+    if chars[idx] == "E":
+        end = idx + 1
+        while end < len(chars) and chars[end] not in "EF":
+            end += 1
+        if end < len(chars) and end - idx + 1 >= 12 and chars[end] == "E":
+            count += 1
+            idx = end
         else:
-            temp += 1
-            if temp >= 12:
-                count_groups += 1
-            temp = 0
-            inside_group = False
+            idx += 1
     else:
-        if inside_group:
-            temp += 1
+        idx += 1
 
 print("#3")
-print(f"Groups: {count_groups}")
+print(f"Groups: {count}")
 
 
